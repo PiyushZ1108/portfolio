@@ -1,95 +1,103 @@
-import React, { useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { MY_STACK } from '../utils/data';
 
+gsap.registerPlugin(ScrollTrigger);
+
+const SectionTitle = ({ title }) => (
+    <div className="mb-20 text-center">
+        <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">{title}</h2>
+        <div className="w-24 h-1 bg-primary mx-auto rounded-full"></div>
+    </div>
+);
 
 const Skills = () => {
+    const containerRef = useRef(null);
 
+    useGSAP(
+        () => {
+            const categories = gsap.utils.toArray('.skill-category');
 
-
-
-    const skillCategories = [
-        {
-            title: "Frontend",
-            skills: [
-                { name: "React", level: 95 },
-                { name: "Redux", level: 85 },
-                { name: "Tailwind CSS", level: 90 },
-                { name: "Material UI", level: 85 },
-                { name: "TypeScript", level: 80 }
-            ]
+            categories.forEach((category) => {
+                const items = category.querySelectorAll('.slide-up');
+                
+                gsap.from(items, {
+                    scrollTrigger: {
+                        trigger: category,
+                        start: "top 85%",
+                        toggleActions: "play none none reverse",
+                    },
+                    y: 40,
+                    opacity: 0,
+                    duration: 0.6,
+                    stagger: 0.1,
+                    ease: "power2.out"
+                });
+            });
         },
-        {
-            title: "Backend",
-            skills: [
-                { name: "Node.js", level: 90 },
-                { name: "Express", level: 90 },
-                { name: "REST APIs", level: 95 },
-                { name: "GraphQL", level: 75 }
-            ]
+        { scope: containerRef }
+    );
+
+    useGSAP(
+        () => {
+            gsap.to(containerRef.current, {
+                scrollTrigger: {
+                    trigger: containerRef.current,
+                    start: 'bottom bottom',
+                    end: 'bottom top',
+                    scrub: 1,
+                },
+                y: -50,
+                opacity: 0,
+                ease: 'none'
+            });
         },
-        {
-            title: "Database & Tools",
-            skills: [
-                { name: "MongoDB", level: 90 },
-                { name: "PostgreSQL", level: 80 },
-                { name: "Docker", level: 75 },
-                { name: "AWS", level: 70 },
-                { name: "Git", level: 95 }
-            ]
-        }
-    ];
+        { scope: containerRef }
+    );
 
     return (
-    <section id="skills" className="py-32 px-4 relative z-10">
-      <div className="max-w-7xl mx-auto">
-        <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mb-20 text-center"
-        >
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">Technical Arsenal</h2>
-            <div className="w-24 h-1 bg-primary mx-auto rounded-full"></div>
-        </motion.div>
+        <section id="skills" ref={containerRef} className="py-32 px-4 relative z-10">
+            <div className="max-w-7xl mx-auto">
+                <SectionTitle title="Technical Arsenal" />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-          {skillCategories.map((category, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.2, duration: 0.6 }}
-              className="bg-white/60 dark:bg-slate-900/40 backdrop-blur-xl border border-slate-200/50 dark:border-slate-700/50 p-8 rounded-3xl hover:border-primary/30 transition-colors duration-300"
-            >
-              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-8 flex items-center gap-3">
-                <span className="w-2 h-8 bg-primary rounded-full"></span>
-                {category.title}
-              </h3>
-              <div className="space-y-6">
-                {category.skills.map((skill, i) => (
-                  <div key={i}>
-                    <div className="flex justify-between mb-2">
-                        <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">{skill.name}</span>
-                        <span className="text-sm font-bold text-primary">{skill.level}%</span>
-                    </div>
-                    <div className="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-2 overflow-hidden">
-                        <motion.div 
-                            initial={{ width: 0 }}
-                            whileInView={{ width: `${skill.level}%` }}
-                            transition={{ duration: 1.2, delay: 0.4 + (i * 0.1), ease: "easeOut" }}
-                            className="bg-primary h-full rounded-full shadow-[0_0_10px_rgba(37,99,235,0.5)]"
-                        ></motion.div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
+                <div className="space-y-10">
+                    {Object.entries(MY_STACK).map(([key, value]) => (
+                        <div className="grid sm:grid-cols-12 gap-8 skill-category" key={key}>
+                            <div className="sm:col-span-5">
+                                <p className="slide-up text-4xl font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+                                    {key}
+                                </p>
+                            </div>
+
+                            <div className="sm:col-span-7 flex gap-x-5 gap-y-4 flex-wrap">
+                                {value.map((item) => (
+                                    <div
+                                        className="slide-up flex gap-3.5 items-center justify-center p-3 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm rounded-xl border border-slate-200/50 dark:border-slate-700/50 hover:bg-white dark:hover:bg-slate-800 transition-colors group"
+                                        key={item.name}
+                                    >
+                                        <div className="w-10 h-10 p-1 flex items-center justify-center">
+                                            <img
+                                                src={item.icon}
+                                                alt={item.name}
+                                                className="w-full h-full object-contain filter group-hover:brightness-110 transition-all"
+                                                onError={(e) => {
+                                                    e.target.style.display = 'none';
+                                                }}
+                                            />
+                                        </div>
+                                        <span className="text-lg font-medium text-slate-700 dark:text-slate-300 capitalize">
+                                            {item.name}
+                                        </span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
     );
 };
 
