@@ -17,7 +17,7 @@ function App() {
       <ThreeBackground />
 
       <Navbar />
-      <main>
+      <main className="md:ml-64 relative z-10">
         <Hero />
         <Experience />
         <Projects />

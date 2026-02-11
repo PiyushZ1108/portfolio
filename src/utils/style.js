@@ -1,0 +1,52 @@
+/**
+ * Convert a number to a px string
+ */
+export const numToPx = num => `${num}px`;
+
+/**
+ * Convert ms token values to a raw numbers for ReactTransitionGroup
+ * Transition delay props
+ */
+export const msToNum = msString => Number(msString.replace('ms', ''));
+
+/**
+ * Convert a number to an ms string
+ */
+export const numToMs = num => `${num}ms`;
+
+/**
+ * Convert a JS object into `--` prefixed css custom properties.
+ * Optionally pass a second param for normal styles
+ */
+export function cssProps(props, style = {}) {
+    let result = {};
+
+    const keys = Object.keys(props);
+
+    for (const key of keys) {
+        let value = props[key];
+
+        if (typeof value === 'number' && key === 'delay') {
+            value = numToMs(value);
+        }
+
+        if (typeof value === 'number' && key !== 'opacity') {
+            value = numToPx(value);
+        }
+
+        if (typeof value === 'number' && key === 'opacity') {
+            value = `${value * 100}%`;
+        }
+
+        result[`--${key}`] = value;
+    }
+
+    return { ...result, ...style };
+}
+
+/**
+ * Concatenate classNames together
+ */
+export function classes(...classes) {
+    return classes.filter(Boolean).join(' ');
+}

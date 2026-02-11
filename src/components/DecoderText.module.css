@@ -1,0 +1,37 @@
+.text {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.text::after {
+  content: '_';
+  visibility: hidden;
+}
+
+.glyph {
+  opacity: 0.8;
+  font-weight: 400;
+  font-family: 'IPA Gothic', 'Hiragino Kaku Gothic Pro', 'Hiragino Sans', 'Osaka', 'Meiryo', 'Segoe UI', sans-serif;
+  line-height: 0;
+}
+
+.value {
+  opacity: 1;
+}
+
+.label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.content {
+    display: inline-block;
+}
