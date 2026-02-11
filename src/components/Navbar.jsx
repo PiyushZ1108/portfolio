@@ -22,9 +22,9 @@ const Navbar = () => {
                     <div className="flex size-10 shrink-0 items-center justify-center bg-primary rounded-lg text-slate-900 cursor-pointer hover:scale-105 transition-transform">
                         <span className="material-symbols-outlined">code</span>
                     </div>
-                    <h2 className="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight">
+                    {/* <h2 className="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight">
                         Alex.dev
-                    </h2>
+                    </h2> */}
                 </div>
 
                 {/* Navigation */}
@@ -33,7 +33,7 @@ const Navbar = () => {
                          <a 
                             key={item} 
                             href={`#${item.toLowerCase()}`} 
-                            className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800/50 rounded-xl transition-all group"
+                            className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary rounded-xl transition-all group"
                         >
                             <span className="material-symbols-outlined text-[20px] group-hover:scale-110 transition-transform">
                                 {item === 'Experience' ? 'work' : 
