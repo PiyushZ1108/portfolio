@@ -25,11 +25,21 @@ function App() {
         <MiniGame />
         <About />
         <Contact />
+        
+        <footer className="py-12 px-4 relative z-10 text-center">
+            <div className="max-w-4xl mx-auto bg-white/40 dark:bg-slate-900/40 backdrop-blur-md border border-slate-200/30 dark:border-slate-700/30 rounded-2xl p-6">
+                <p className="text-slate-600 dark:text-slate-400 font-medium">&copy; {new Date().getFullYear()} Piyush Tembhurne. All rights reserved.</p>
+                <div className="flex justify-center gap-4 mt-4">
+                    <span className="text-xs text-slate-500 dark:text-slate-500 uppercase tracking-widest font-bold">Designed & Built with</span>
+                </div>
+                <div className="flex justify-center gap-2 mt-2 text-primary text-xl">
+                    <span className="material-symbols-outlined" title="React">code</span>
+                    <span className="material-symbols-outlined" title="Love">favorite</span>
+                    <span className="material-symbols-outlined" title="Coffee">coffee</span>
+                </div>
+            </div>
+        </footer>
       </main>
-      <footer className="py-8 text-center text-slate-500 dark:text-slate-500 text-sm">
-        <p>&copy; {new Date().getFullYear()} Alex.dev. All rights reserved.</p>
-        <p className="mt-2 text-xs">Built with React, Tailwind, and MUI.</p>
-      </footer>
     </div>
   );
 }
