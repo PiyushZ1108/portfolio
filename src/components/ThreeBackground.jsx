@@ -288,6 +288,13 @@ export default function ThreeBackground(props) {
   useEffect(() => {
     let animation;
 
+    // Track scroll position
+    let scrollY = window.scrollY;
+    const updateScroll = () => {
+      scrollY = window.scrollY;
+    };
+    window.addEventListener('scroll', updateScroll);
+
     const animate = () => {
       animation = requestAnimationFrame(animate);
 
@@ -297,8 +304,8 @@ export default function ThreeBackground(props) {
 
       if (sphere.current) {
         sphere.current.rotation.z += 0.001;
-        sphere.current.rotation.x = rotationX.get();
-        sphere.current.rotation.y = rotationY.get();
+        sphere.current.rotation.x = rotationX.get() + scrollY * 0.0003;
+        sphere.current.rotation.y = rotationY.get() + scrollY * 0.0003;
       }
 
       if (renderer.current && scene.current && camera.current) {
@@ -314,6 +321,7 @@ export default function ThreeBackground(props) {
 
     return () => {
       cancelAnimationFrame(animation);
+      window.removeEventListener('scroll', updateScroll);
     };
   }, [isInViewport, reduceMotion, rotationX, rotationY]);
 
