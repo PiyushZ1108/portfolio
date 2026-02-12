@@ -16,7 +16,7 @@ const Navbar = () => {
     return (
         <>
             {/* Desktop Sidebar - Minimalist & Floating */}
-            <aside className="hidden md:flex flex-col fixed top-0 left-0 h-screen w-20 lg:w-24 backdrop-blur-xl border-r border-slate-200/50 dark:border-slate-800/50 z-50 transition-all duration-300 items-center py-8">
+            <aside className="hidden md:flex flex-col fixed top-0 left-0 h-screen w-20 lg:w-24 backdrop-blur-xl  z-50 transition-all duration-300 items-center py-8">
                 
                 {/* Logo */}
                 <div className="mb-12">
@@ -50,7 +50,7 @@ const Navbar = () => {
                 </nav>
 
                 {/* Theme Toggle */}
-                <div className="mt-auto pt-8 border-t border-slate-200/50 dark:border-slate-700/50 w-full flex justify-center">
+                <div className="mt-auto pt-8  w-full flex justify-center">
                     <button 
                         onClick={toggleDarkMode} 
                         className="size-12 flex items-center justify-center rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-orange-500 dark:hover:text-yellow-400 transition-all duration-300"
@@ -64,7 +64,7 @@ const Navbar = () => {
             </aside>
 
             {/* Mobile Topbar */}
-            <header className="md:hidden fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200/50 dark:border-slate-800/50 transition-colors duration-300">
+            <header className="md:hidden fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md  transition-colors duration-300">
                 <div className="flex items-center px-4 h-16 justify-between">
                      <a href="#" className="flex size-10 items-center justify-center bg-gradient-to-tr from-primary to-cyan-400 rounded-lg text-white shadow-md shadow-primary/20">
                         <span className="material-symbols-outlined text-[20px]">code</span>
@@ -97,7 +97,7 @@ const Navbar = () => {
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: 'auto' }}
                             exit={{ opacity: 0, height: 0 }}
-                            className="overflow-hidden bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-t border-slate-200/50 dark:border-slate-800/50 shadow-2xl"
+                            className="overflow-hidden shadow-2xl"
                         >
                             <nav className="flex flex-col p-4 gap-2">
                                 {navItems.map((item) => (
