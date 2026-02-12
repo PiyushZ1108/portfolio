@@ -86,5 +86,22 @@ export const MY_STACK = {
             name: 'AWS',
             icon: '/logo/aws.png',
         },
+         {
+            name: 'Grafana',
+            icon: '/logo/grafana.png',
+        },
+         {
+            name: 'Postman',
+            icon: '/logo/postman.png',
+        },
+         {
+            name: 'RabbitMQ',
+            icon: '/logo/rabbitMq.png',
+        },
+        {
+            name: 'Redis',
+            icon: '/logo/redis.png',
+        },
+        
     ],
 };
