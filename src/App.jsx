@@ -9,11 +9,13 @@ import About from './components/About';
 import Contact from './components/Contact';
 
 import ThreeBackground from './components/ThreeBackground';
+import SmoothScroll from './components/SmoothScroll';
 
 
 function App() {
   return (
     <div className="bg-background-light dark:bg-background-dark min-h-screen font-display transition-colors duration-300 relative">
+      <SmoothScroll />
       <ThreeBackground />
 
       <Navbar />
