@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { MY_STACK } from '../utils/data';
+import config from '../config.json';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -63,7 +63,7 @@ const Skills = () => {
                 <SectionTitle title="Technical Arsenal" />
 
                 <div className="space-y-10">
-                    {Object.entries(MY_STACK).map(([key, value]) => (
+                    {Object.entries(config.skills).map(([key, value]) => (
                         <div className="grid sm:grid-cols-12 gap-8 skill-category" key={key}>
                             <div className="sm:col-span-5">
                                 <p className="slide-up text-4xl font-bold text-slate-900 dark:text-white uppercase tracking-wider">

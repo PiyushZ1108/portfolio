@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Suspense, lazy } from 'react';
 import DecoderText from './DecoderText';
 import VisuallyHidden from './VisuallyHidden';
+import useDarkMode from '../hooks/useDarkMode';
 import { useInterval } from '../hooks/useInterval';
 import { usePrevious } from '../hooks/usePrevious';
 import config from '../config.json';
@@ -14,11 +15,10 @@ const ThreeBackground = lazy(() => import('./ThreeBackground'));
 const Hero = () => {
     const { disciplines } = config;
     const [disciplineIndex, setDisciplineIndex] = useState(0);
-    const prevTheme = usePrevious("dark");
-    const [scrollIndicatorHidden, setScrollIndicatorHidden] = useState(false);
-    
-    // Theme placeholder if needed for interval reset
-    const theme = "dark"; 
+    const [colorTheme] = useDarkMode();
+    const theme = colorTheme === 'light' ? 'dark' : 'light'; 
+    const prevTheme = usePrevious(theme);
+    const [scrollIndicatorHidden, setScrollIndicatorHidden] = useState(false); 
 
     const currentDiscipline = disciplines.find((item, index) => index === disciplineIndex);
     const titleId = `intro-title`;

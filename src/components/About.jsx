@@ -1,6 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+import config from '../config.json';
+// ... (keep React and motion import, but lines 1-3 are outside this block usually, I'll assume they are there or I'll include them if startline is 1)
+
 const About = () => {
     return (
         <section id="about" className="py-32 px-4 relative z-10">
@@ -16,39 +19,31 @@ const About = () => {
                         <div className="absolute -inset-1 bg-gradient-to-r from-primary to-cyan-500 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
                         <div className="relative aspect-square rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700/50">
                              {/* Placeholder for profile image - you can replace src with your actual image */}
-                            <img src="https://via.placeholder.com/600x600" alt="Profile" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" />
+                            <img src={config.about.profileImage} alt="Profile" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" />
                         </div>
                     </div>
                     
                     <div className="bg-white/60 dark:bg-slate-900/40 backdrop-blur-xl p-8 md:p-12 rounded-3xl border border-slate-200/50 dark:border-slate-700/50 shadow-xl shadow-slate-200/50 dark:shadow-none">
-                        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-6">About Me</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-6">{config.about.title}</h2>
                         <div className="w-16 h-1 bg-primary rounded-full mb-8"></div>
                         
                         <div className="space-y-6 text-lg text-slate-600 dark:text-slate-300 leading-relaxed font-light">
+                            <p dangerouslySetInnerHTML={{ __html: config.about.primaryDescription }} />
                             <p>
-                                I'm a passionate <span className="text-slate-900 dark:text-white font-semibold">Full Stack Developer</span> based in San Francisco. My journey started with a simple HTML page, and now I build complex, scalable web applications.
+                                {config.about.secondaryDescription}
                             </p>
                             <p>
-                                I love untangling messy code and optimizing performance. I believe in writing clean, maintainable code that solves real-world problems.
-                            </p>
-                            <p>
-                                When I'm not coding, you can find me hiking the trails of the Bay Area, experimenting with new coffee brews, or contributing to open-source projects.
+                                {config.about.tertiaryDescription}
                             </p>
                         </div>
 
                         <div className="mt-8 pt-8 border-t border-slate-200 dark:border-slate-700/50 flex gap-6">
-                            <div>
-                                <h4 className="text-3xl font-bold text-slate-900 dark:text-white">5+</h4>
-                                <p className="text-sm text-slate-500 dark:text-slate-400 uppercase tracking-wider font-semibold">Years Exp.</p>
-                            </div>
-                            <div>
-                                <h4 className="text-3xl font-bold text-slate-900 dark:text-white">50+</h4>
-                                <p className="text-sm text-slate-500 dark:text-slate-400 uppercase tracking-wider font-semibold">Projects</p>
-                            </div>
-                            <div>
-                                <h4 className="text-3xl font-bold text-slate-900 dark:text-white">20+</h4>
-                                <p className="text-sm text-slate-500 dark:text-slate-400 uppercase tracking-wider font-semibold">Clients</p>
-                            </div>
+                            {config.about.stats.map((stat, index) => (
+                                <div key={index}>
+                                    <h4 className="text-3xl font-bold text-slate-900 dark:text-white">{stat.value}</h4>
+                                    <p className="text-sm text-slate-500 dark:text-slate-400 uppercase tracking-wider font-semibold">{stat.label}</p>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </motion.div>

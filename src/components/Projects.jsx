@@ -2,37 +2,17 @@ import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import projectImg from "../assets/project-dashboard.png";
 
+import config from '../config.json';
+
 const Projects = () => {
-  const projects = [
-    {
-      title: "E-Commerce Dashboard",
-      description: "A full-featured admin dashboard for managing products, orders, and users. Includes chart visualizations and dark mode.",
-      tech: ["React", "MUI", "Recharts", "Firebase"],
-      links: { demo: "#", github: "#" },
-      image: projectImg,
-    },
-    {
-      title: "Task Management App",
-      description: "Collaborative task manager with real-time updates, drag-and-drop interface, and team workspaces.",
-      tech: ["Next.js", "TypeScript", "Tailwind", "Prisma"],
-      links: { demo: "#", github: "#" },
-      image: projectImg,
-    },
-    {
-      title: "Social Media Clone",
-      description: "Full-stack social platform with post creation, likes, comments, and user profiles.",
-      tech: ["MERN Stack", "Redux", "AWS S3"],
-      links: { demo: "#", github: "#" },
-      image: projectImg,
-    },
-    {
-      title: "AI Image Generator",
-      description: "Generate images from text prompts using OpenAI's DALL-E API. Includes gallery and sharing features.",
-      tech: ["React", "Node.js", "OpenAI API"],
-      links: { demo: "#", github: "#" },
-      image: projectImg,
-    },
-  ];
+  const imageMap = {
+    "dashboard": projectImg
+  };
+  
+  const projects = config.projects.map(project => ({
+    ...project,
+    image: imageMap[project.imageKey] || projectImg
+  }));
 
   return (
     <section id="projects" className="py-32 px-4 relative z-10">

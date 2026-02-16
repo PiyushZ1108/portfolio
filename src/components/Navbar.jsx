@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import useDarkMode from '../hooks/useDarkMode';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const Navbar = () => {
+    import config from '../config.json';
+
+    const Navbar = () => {
     const [colorTheme, setTheme] = useDarkMode();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeSection, setActiveSection] = useState('');
@@ -11,7 +13,7 @@ const Navbar = () => {
         setTheme(colorTheme);
     };
 
-    const navItems = ['Experience', 'Projects', 'Skills', 'About', 'Contact'];
+    const { navbar: navItems } = config;
 
     return (
         <>

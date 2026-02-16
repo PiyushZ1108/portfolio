@@ -1,80 +1,281 @@
 {
   "name": "Piyush Tembhurne",
   "role": "Software Engineer",
-  "disciplines": ["NodeJS",
-  "ReactJS",
-  "ExpressJS",
-  "MongoDB",
-  "React Native",
-  "Flutter",
-  "Python",
-  "Django",
-  "Flask",
-  "MySQL",
-  "PostgreSQL",
-  "Git",
-  "GitHub",
-  "GitLab",
-  "Docker",
-  "Kubernetes",
-  "AWS",
-  "Azure",
-  "GCP",
-  "Linux",
-  "Windows",
-  "Mac",
-  "Android",
-  "iOS",
-  "Web",
-  "Mobile",
-  "Desktop",
-  "Cloud",
-  "AI",
-  "ML",
-  "Data Science",
-  "Big Data",
-  "IoT",
-  "Blockchain",
-  "AR",
-  "VR",
-  "Game",
-  "App",
-  "Software",
-  "Hardware",
-  "Firmware",
-  "Embedded",
-  "Robotics",
-  "Automation",
-  "Security",
-  "Networking",
-  "Database",
-  "API",
-  "UI",
-  "UX",
-  "Design",
-  "Development",
-  "Testing",
-  "Deployment",
-  "Maintenance",
-  "Support",
-  "Consulting",
-  "Training",
-  "Education",
-  "Research",
-  "Development",
-  "Testing",
-  "Deployment",
-  "Maintenance",
-  "Support",
-  "Consulting",
-  "Training",
-  "Education",
-  "Research"
-],
+  "disciplines": [
+    "NodeJS",
+    "ReactJS",
+    "ExpressJS",
+    "MongoDB",
+    "React Native",
+    "Python",
+    "MySQL",
+    "PostgreSQL",
+    "Git",
+    "GitHub",
+    "GitLab",
+    "Docker",
+    "AWS",
+    "Linux",
+    "Windows",
+    "Mac",
+    "Android",
+    "Web",
+    "AI",
+    "ML",
+    "Blockchain",
+    "Software",
+    "Database",
+    "API",
+    "U/UX",
+    "Design",
+    "Development"
+  ],
   "url": "https://hamishw.com",
   "bluesky": "hamishw.com",
   "figma": "@Hamish",
-  "github": "HamishMW",
+  "github": "PiyushTembhurne",
   "repo": "https://github.com/HamishMW/portfolio",
-  "ascii": "__  __  __\n\u005C \u005C \u005C \u005C \u005C\u2215\n \u005C \u005C\u2215\u005C \u005C\n  \u005C\u2215  \u005C\u2215\n"
+  "ascii": "__  __  __\n\\ \\ \\ \\ \\/\n \\ \\/\\ \\\n  \\/  \\/\n",
+  "navbar": [
+    "Experience",
+    "Projects",
+    "Skills",
+    "About",
+    "Contact"
+  ],
+  "about": {
+    "title": "About Me",
+    "profileImage": "https://via.placeholder.com/600x600",
+    "primaryDescription": "I'm a passionate <span class=\"text-slate-900 dark:text-white font-semibold\">Full Stack Developer</span> based in San Francisco. My journey started with a simple HTML page, and now I build complex, scalable web applications.",
+    "secondaryDescription": "I love untangling messy code and optimizing performance. I believe in writing clean, maintainable code that solves real-world problems.",
+    "tertiaryDescription": "When I'm not coding, you can find me hiking the trails of the Bay Area, experimenting with new coffee brews, or contributing to open-source projects.",
+    "stats": [
+      {
+        "value": "2+",
+        "label": "Years Exp."
+      },
+      {
+        "value": "10+",
+        "label": "Projects"
+      },
+      {
+        "value": "5+",
+        "label": "Clients"
+      }
+    ]
+  },
+  "skills": {
+    "frontend": [
+      {
+        "name": "JavaScript",
+        "icon": "/logo/js.png"
+      },
+      {
+        "name": "TypeScript",
+        "icon": "/logo/ts.png"
+      },
+      {
+        "name": "React",
+        "icon": "/logo/react.png"
+      },
+      {
+        "name": "Next.js",
+        "icon": "/logo/next.png"
+      },
+      {
+        "name": "Redux",
+        "icon": "/logo/redux.png"
+      },
+      {
+        "name": "Tailwind CSS",
+        "icon": "/logo/tailwind.png"
+      },
+      {
+        "name": "GSAP",
+        "icon": "/logo/gsap.png"
+      },
+      {
+        "name": "Bootstrap",
+        "icon": "/logo/bootstrap.svg"
+      }
+    ],
+    "backend": [
+      {
+        "name": "Node.js",
+        "icon": "/logo/node.png"
+      },
+      {
+        "name": "NestJS",
+        "icon": "/logo/nest.svg"
+      },
+      {
+        "name": "Express.js",
+        "icon": "/logo/express.png"
+      }
+    ],
+    "database": [
+      {
+        "name": "MySQL",
+        "icon": "/logo/mysql.svg"
+      },
+      {
+        "name": "PostgreSQL",
+        "icon": "/logo/postgreSQL.png"
+      },
+      {
+        "name": "MongoDB",
+        "icon": "/logo/mongodb.svg"
+      },
+      {
+        "name": "Prisma",
+        "icon": "/logo/prisma.png"
+      }
+    ],
+    "tools": [
+      {
+        "name": "Git",
+        "icon": "/logo/git.png"
+      },
+      {
+        "name": "Docker",
+        "icon": "/logo/docker.svg"
+      },
+      {
+        "name": "AWS",
+        "icon": "/logo/aws.png"
+      },
+      {
+        "name": "Grafana",
+        "icon": "/logo/grafana.png"
+      },
+      {
+        "name": "Postman",
+        "icon": "/logo/postman.png"
+      },
+      {
+        "name": "RabbitMQ",
+        "icon": "/logo/rabbitMq.png"
+      },
+      {
+        "name": "Redis",
+        "icon": "/logo/redis.png"
+      }
+    ]
+  },
+  "projects": [
+    {
+      "title": "E-Commerce Dashboard",
+      "description": "A full-featured admin dashboard for managing products, orders, and users. Includes chart visualizations and dark mode.",
+      "tech": [
+        "React",
+        "MUI",
+        "Recharts",
+        "Firebase"
+      ],
+      "links": {
+        "demo": "#",
+        "github": "#"
+      },
+      "imageKey": "dashboard"
+    },
+    {
+      "title": "Task Management App",
+      "description": "Collaborative task manager with real-time updates, drag-and-drop interface, and team workspaces.",
+      "tech": [
+        "Next.js",
+        "TypeScript",
+        "Tailwind",
+        "Prisma"
+      ],
+      "links": {
+        "demo": "#",
+        "github": "#"
+      },
+      "imageKey": "dashboard"
+    },
+    {
+      "title": "Social Media Clone",
+      "description": "Full-stack social platform with post creation, likes, comments, and user profiles.",
+      "tech": [
+        "MERN Stack",
+        "Redux",
+        "AWS S3"
+      ],
+      "links": {
+        "demo": "#",
+        "github": "#"
+      },
+      "imageKey": "dashboard"
+    },
+    {
+      "title": "AI Image Generator",
+      "description": "Generate images from text prompts using OpenAI's DALL-E API. Includes gallery and sharing features.",
+      "tech": [
+        "React",
+        "Node.js",
+        "OpenAI API"
+      ],
+      "links": {
+        "demo": "#",
+        "github": "#"
+      },
+      "imageKey": "dashboard"
+    }
+  ],
+  "experience": [
+    {
+      "role": "Senior Software Engineer",
+      "company": "Leadows, Maharashtra",
+      "period": "2023 - Present",
+      "description": "Led development of scalable microservices, improved API performance by 40%, and mentored junior developers.",
+      "tech": [
+        "React",
+        "Node.js",
+        "AWS",
+        "Docker"
+      ]
+    },
+    {
+      "role": "Data Engineer Intern",
+      "company": "HEREmap, Netherlands",
+      "period": "2023 - 2023",
+      "description": "Specializing in web scraping and converting data into GeoJSON format. Proficient in Python, web scraping frameworks, and data transformation techniques. Experienced in data extraction, cleaning, and database systems. Detail-oriented and motivated to contribute to impactful data-driven solutions. Strong analytical and problem-solving skills. ",
+      "tech": [
+        "Python",
+        "Web Scraping",
+        "Data Transformation",
+        "Database Systems"
+      ]
+    }
+  ],
+  "contact": {
+    "title": "Let's Connect",
+    "heading": "Let's Connect",
+    "description": "Have a project in mind or just want to say hi? I'm always open to discussing new opportunities and creative ideas.",
+    "email": "piyush.tembhurne@gmail.com",
+    "location": "Nagpur, Maharashtra",
+    "socialIcons": [
+      "code",
+      "work",
+      "alternate_email"
+    ]
+  },
+  "footer": {
+    "copyright": "Piyush Tembhurne",
+    "text": "Designed & Built with",
+    "icons": [
+      {
+        "name": "code",
+        "title": "React"
+      },
+      {
+        "name": "favorite",
+        "title": "Love"
+      },
+      {
+        "name": "coffee",
+        "title": "Coffee"
+      }
+    ]
+  }
 }

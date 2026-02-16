@@ -1,23 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import config from '../config.json';
 
 const Experience = () => {
-    const experiences = [
-        {
-            role: "Senior Full Stack Developer",
-            company: "Tech Solutions Inc.",
-            period: "2023 - Present",
-            description: "Led development of scalable microservices, improved API performance by 40%, and mentored junior developers.",
-            tech: ["React", "Node.js", "AWS", "Docker"]
-        },
-        {
-            role: "MERN Stack Developer",
-            company: "Startup Hub",
-            period: "2021 - 2023",
-            description: "Built and deployed 3 major client applications. Implemented secure authentication and real-time features.",
-            tech: ["MongoDB", "Express", "React", "Socket.io"]
-        }
-    ];
+    const { experience: experiences } = config;
 
     return (
         <section id="experience" className="py-32 px-4 relative z-10">
